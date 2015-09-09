@@ -17,12 +17,14 @@
         <input type="text" ng-model="searchCtrl.searchTerm" ng-change="searchCtrl.doSearch()" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }">
         <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
-      <ul class="list-group">
+      <p ng-show="searchCtrl.searchTerm">Search results for {{searchCtrl.searchTerm}}</p>
+      <ul class="list-group" ng-show="searchCtrl.searchTerm">
         <li ng-repeat="user in searchCtrl.searchResult.items">
-          <img ng-src="{{user.avatar_url}}&s=50">
+          <img class="img-circle" style="height:75px; width:75px" ng-src="{{user.avatar_url}}&s=50">
           <a ng-href="{{user.html_url}}">{{user.login}}</a>
         </li>
       </ul>
+      <p ng-show="searchCtrl.searchResult.total_count === 0">No results found</p>
     </div>
   </body>
 </html>
