@@ -19,7 +19,7 @@ var karmaServer          = require('karma').Server;
   gulp.task('server', function(){
     var port = 8080;
     server = http.createServer(
-      ecstatic({ root: '.' })
+      ecstatic({ root: './public' })
     ).listen(port);
     enableDestroy(server);
     console.log('Server live on ' + port);

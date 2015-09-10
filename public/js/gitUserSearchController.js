@@ -1,11 +1,13 @@
 githubUserSearch.controller('GitUserSearchController', ['Search', function (Search) {
   var self = this;
   self.doSearch = function() {
-    if (self.searchTerm) {
-        Search.query(self.searchTerm)
-          .then(function(response) {
-            self.searchResult = response.data;
-          })
-    }
+    self.searchResult = [];
+    Search.queryListOfUsers(self.searchTerm).then(function(response) {
+      angular.forEach(response.data.items, function(userInfo) {
+        Search.queryEachUser(userInfo.login).then(function(details){
+          self.searchResult.push(details.data);
+        });
+      });
+    });
   };
 }]);
