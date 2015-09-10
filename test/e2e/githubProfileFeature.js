@@ -11,16 +11,20 @@ describe('GitHub profile finder', function() {
     browser.get('http://localhost:8080');
   });
 
-  it('has a title', function() {
+  it('has a title and displays nothing else', function() {
     expect(browser.getTitle()).toEqual('Github user search');
     expect(searchError.isDisplayed()).toBe(false);
-    expect(profiles.isDisplayed()).toBe(false);
   });
 
-  it('finds profiles using a submit button', function() {
+  it('can find profiles using a submit button', function() {
     searchBox.sendKeys('spike');
     searchButton.click();
     expect(profile_list.get(0).getText()).toEqual('spike');
+  });
+
+  it('shows the user what they have just searched for', function() {
+    searchBox.sendKeys('test');
+    expect(searchFeedback.getText()).toEqual('Search results for test');
   });
 
   it('displays no results found when none are found', function() {
@@ -33,10 +37,5 @@ describe('GitHub profile finder', function() {
     searchBox.sendKeys('test');
     searchBox.clear();
     expect(profiles.isDisplayed()).toBe(false);
-  });
-
-  it('shows the user what they have just searched for', function() {
-    searchBox.sendKeys('test');
-    expect(searchFeedback.getText()).toEqual('Search results for test');
   });
 });

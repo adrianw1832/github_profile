@@ -22,7 +22,7 @@ describe('GitUserSearchController', function() {
           "html_url"  : "https://github.com/tansaku"
         }
       ]
-    }
+    };
 
     beforeEach(inject(function ($q, $rootScope) {
       scope = $rootScope;

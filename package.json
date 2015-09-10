@@ -17,14 +17,19 @@
   "homepage": "https://github.com/adrianw1832/github_profile#readme",
   "description": "",
   "devDependencies": {
+    "ecstatic": "^0.8.0",
+    "gulp": "^3.9.0",
+    "gulp-protractor": "^1.0.0",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.9",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
-    "phantomjs": "^1.9.18"
+    "phantomjs": "^1.9.18",
+    "server-destroy": "^1.0.1"
   },
   "dependencies": {
+    "gulp-install": "^0.5.0",
     "http-server": "^0.8.0"
   }
 }
