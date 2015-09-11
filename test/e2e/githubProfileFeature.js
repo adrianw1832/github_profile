@@ -23,7 +23,7 @@ describe('GitHub profile finder', function() {
     searchButton.click();
     expect(username.getText()).toEqual('adrianw1832');
     expect(userDetails.get(0).getText()).toEqual('11 followers');
-    expect(userDetails.get(1).getText()).toEqual('26 public repos');
+    expect(userDetails.get(1).getText()).toEqual('28 public repos');
   });
 
   it('shows the user what they have just searched for', function() {

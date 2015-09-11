@@ -1,10 +1,10 @@
-describe('factory: Search', function() {
+describe('factory: SearchUser', function() {
   var search;
 
   beforeEach(module('GitUserSearch'));
 
-  beforeEach(inject(function(Search) {
-    search = Search;
+  beforeEach(inject(function(SearchUser) {
+    search = SearchUser;
   }));
 
   var httpBackend;
@@ -12,7 +12,7 @@ describe('factory: Search', function() {
   beforeEach(inject(function($httpBackend) {
     httpBackend = $httpBackend;
     httpBackend
-      .when("GET", "https://api.github.com/search/users?access_token=" + gitToken + "&q=tansaku")
+      .when("GET", "https://api.github.com/users/tansaku?access_token=" + gitToken)
       //same as doing whenGET
       .respond(
         { items: items }
@@ -28,11 +28,11 @@ describe('factory: Search', function() {
     ];
 
   it('responds to query', function() {
-    expect(search.queryListOfUsers).toBeDefined();
+    expect(search.queryEachUser).toBeDefined();
   });
 
   it('returns search results', function() {
-    search.queryListOfUsers('tansaku')
+    search.queryEachUser('tansaku')
       .then(function(response) {
         expect(response.data.items).toEqual(items)
       })

@@ -11,16 +11,6 @@ githubUserSearch.factory('Search', ['$http', function($http) {
           'access_token': gitToken
         }
       });
-    },
-
-    queryEachUser: function(user) {
-      return $http({
-        url: 'https://api.github.com/users/' + user,
-        method: 'GET',
-        params: {
-          'access_token': gitToken
-        }
-      });
     }
   };
 }]);

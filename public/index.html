@@ -11,6 +11,7 @@
   <script src="js/gitToken.js"></script>
   <script src="js/gitUserSearchController.js"></script>
   <script src="js/searchFactory.js"></script>
+  <script src="js/searchUserFactory.js"></script>
 </head>
   <body ng-controller="GitUserSearchController as searchCtrl">
     <div>
@@ -27,7 +28,7 @@
           <span>{{user.public_repos}} public repos</span>
         </li>
       </ul>
-      <!-- <p ng-show="searchCtrl.searchResult.count === 0">No results found</p> -->
+      <p ng-show="searchCtrl.searchResult.items.length === 0">No results found</p>
     </div>
   </body>
 </html>
