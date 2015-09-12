@@ -31,7 +31,7 @@ var karmaServer          = require('karma').Server;
             configFile: "test/e2e/conf.js",
             args: ['--baseUrl', 'http://127.0.0.1:8000']
         }))
-        .on('error', function(e) { throw e });
+        .on('error', function(e) { throw e; })
         .on('close', function() { server.destroy(); });
   });
 })();
