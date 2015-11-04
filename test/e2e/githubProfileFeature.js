@@ -6,8 +6,8 @@ describe('GitHub profile finder', function() {
   var searchError = element.all(by.css('p')).get(1);
   var profile_list = element.all(by.repeater('user in searchCtrl.searchResult.items'));
   var profiles = element(by.css('.list-group'));
-  var userDetails = element.all(by.css('span'))
-  var username = element(by.css('a'))
+  var userDetails = element.all(by.css('span'));
+  var username = element(by.css('a'));
 
   beforeEach(function() {
     browser.get('http://localhost:8080');
